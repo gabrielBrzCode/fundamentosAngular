@@ -1,0 +1,16 @@
+.caja{
+    width: 150px;
+    height: 150px;
+    border: solid 2px blueviolet;
+    margin-top: 50px;
+}
+
+.colorVerde{
+    background-color: green;
+}
+.colorRojo{
+    background-color: red;
+}
+.colorVioleta{
+    background-color: blueviolet;
+}
