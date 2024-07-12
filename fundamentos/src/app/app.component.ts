@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+// formularios driven-templates
+import { FormsModule } from '@angular/forms';
+// Grupos y controles para formularios reactivos
+import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -37,9 +41,11 @@ isShowed: boolean = false;
 
 productos: string[] = ["carros", "motos", "bicicletas"]
 
+colorFavorito : string = "";
+nombre: string = "";
 
 
-
+// -------------------------------------------------------------------------
   //funciones o metodos
 
  saludo(){
@@ -58,11 +64,36 @@ manejarClick(){
   this.colorFondo = "colorVioleta";
 }
 
+//formularios
+// Ç-----------------------------------------------------------
+manejarEnvio(){
+  alert("los datos del formulario son:" + this.colorFavorito + "-" + this.nombre);
+}
+
+// FORMULARIOS REACTIVOS
+// 1. crear el grupo -> depende de lo que haga el formulario
+//2. crear los controles -> depende de los inputs que usted quiere almacenar
+
+login = new FormGroup({
+correo : new FormControl(""),
+contrasenia : new FormControl("")
+})
+
+manejarSubmit(){
+
+  console.log(" Estos son los datos de mi formulario:", this.login.value)
+}
+
+}
+
+
+
+
+
 
 
   // exportaciones - ciclo de vida
 
-}
 
  
 

@@ -65,7 +65,6 @@
   </ul>
   }
 
-</section>
 <h3>Condicional con directiva de angular</h3>
 <!-- DIRECTIVA NGIF -->
 <div *ngIf="isShowed; else noDiv">
@@ -79,3 +78,58 @@
 <h3>ciclo for</h3>
 <p>los productos en stock son:</p>
 <ol ><li *ngFor="let producto of productos">{{producto}}</li></ol>
+</section>
+
+<hr>
+
+<!-- FORMULARIOS -->
+ <!-- Es la forma de pedirle informacion al usuario -->
+  <section>
+    <h3>FORMULARIOS EN ANGULAR</h3>
+    <p>Hay dos tipos: Formularios basados en una plantilla y formularios reactivos</p>
+  <h4>FORMULARIOS DRIVEN-TEMPLATES</h4>
+  <!-- IMPORTAR FormModule -->
+   <div>
+<form (ngSubmit)="manejarEnvio()">
+  <label>
+    color Favorito
+    <input type="text" name="colorFav"[(ngModel)]="colorFavorito">
+  </label>
+  <br>
+  <br>
+  <label>
+    Nombre
+    <input type="text" name="nombre"[(ngModel)]="nombre">
+  </label>
+
+  <br>
+  <br>
+
+  <button type="submit">enviar informacion</button>
+</form>
+
+   </div>
+  
+  <!-- FORMULARIOS REACTIVOS -->
+   <h3>FORMULARIOS REACTIVOS
+   </h3>
+   <div>
+  <form [formGroup]="login" (ngSubmit)="manejarSubmit()">
+    <label>
+      Correo
+      <input type="email" name="email" formControlName="correo">
+    </label>
+    <br>
+    <br>
+    <label>
+      Nombre
+      <input type="password" name="password" formControlName="contrasenia">
+    </label>
+  
+    <br>
+    <br> 
+  
+    <button type="submit">enviar informacion 2</button>
+  </form>
+</div>
+  </section>
